@@ -11,7 +11,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from sqlalchemy.orm.session import Session
 
-from src.sqlalchemy_uow.repository import AbstractRepository, SqlAlchemyRepository, FakeRepository
+from .repository import AbstractRepository, SqlAlchemyRepository, FakeRepository
 
 
 class AbstractUnitOfWork(ABC):

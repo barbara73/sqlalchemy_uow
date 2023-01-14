@@ -43,13 +43,14 @@ def set_new_version(major: int, minor: int, patch: int):
     # Get current changelog and ensure that it has an [Unreleased] entry
     changelog_path = Path("CHANGELOG.md")
     changelog = changelog_path.read_text()
-    if "[Unreleased]" not in changelog:
-        raise RuntimeError("No [Unreleased] entry in CHANGELOG.md.")
+    # if "[Unreleased]" not in changelog:
+    #     raise RuntimeError("No [Unreleased] entry in CHANGELOG.md.")
 
     # Add version to CHANGELOG
     today = dt.date.today().strftime("%Y-%m-%d")
     new_changelog = re.sub(r"\[Unreleased\].*", f"[v{version}] - {today}", changelog)
     changelog_path.write_text(new_changelog)
+    changelog_path.write_text(r"\[Unreleased\].*")
 
     # Update the version in the `pyproject.toml` file
     pyproject_path = Path("pyproject.toml")

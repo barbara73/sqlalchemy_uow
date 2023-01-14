@@ -9,8 +9,8 @@ but also add, delete or get can be added to interact with database.
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from src.sqlalchemy_uow.settings import Settings
-from src.sqlalchemy_uow.utils import chunks
+from .settings import Settings
+from .utils import chunks
 
 
 class AbstractRepository(ABC):
