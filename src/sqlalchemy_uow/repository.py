@@ -85,10 +85,13 @@ class SqlAlchemyRepository(AbstractRepository, ABC):
         return self.session.query(table).filter(
             table.exported == by).yield_per(Settings.chunk_size)
 
-    def count(self, table_col, by: bool) -> int:
+    def count(self, table_col, by: Optional[bool] = None) -> int:
         """
         Count the table column by filter.
         """
+        if by is None:
+            return self.session.query(table_col).count()
+
         return self.session.query(table_col).filter(table_col == by).count()
 
 
