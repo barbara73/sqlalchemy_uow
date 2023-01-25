@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sqlalchemy_uow"
-version = "0.0.10"
+version = "0.1.0"
 description = "Unit of Work for SQLAlchemy project"
 authors = [
     "Barbara Jesacher <barbarajesacher@icloud.com>",
